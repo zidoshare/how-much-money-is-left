@@ -42,9 +42,6 @@ func NewClient() MailClient {
 	if err := c.Login(GlobalConfig.Receive.Email, GlobalConfig.Receive.Password); err != nil {
 		log.Panicln(err)
 	}
-	//if err := c.Login("zidoshare@163.com", "URHVQCLSXOSASBIU"); err != nil {
-	//		log.Panicln(err)
-	//}
 	log.Println("登录成功")
 	clt := id.NewClient(c)
 	clt.ID(map[string]string{
