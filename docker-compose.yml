@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  main:
+    container_name: how-much-money-is-left
+    build: .
+    volumes:
+      - ./data:/etc/how-much-money-is-left
