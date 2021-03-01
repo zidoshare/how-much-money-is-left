@@ -48,15 +48,15 @@ func (s *Service) Serve() {
 			fmt.Println("stopping...")
 			return
 		case <-s.ticker.C:
-			defer func() {
-				log.Println("receover")
-				if err := recover(); err != nil {
-					s.client.DisConnect()
-					log.Println("接收邮件出错:", err)
-					s.client = NewClient()
-				}
+			func() {
+				defer func() {
+					if err := recover(); err != nil {
+						log.Println("接收邮件出错:", err)
+						s.client = NewClient()
+					}
+				}()
+				s.client.Receive()
 			}()
-			s.client.Receive()
 		}
 	}
 }
