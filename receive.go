@@ -142,7 +142,7 @@ func (mailClient MailClient) Receive() {
 					continue
 				}
 				content := string(b)
-				if strings.HasPrefix(content, "您账户"+GlobalConfig.Account) {
+				if strings.HasPrefix(content, "您账户"+GlobalConfig.Account) || strings.HasPrefix(content, "您的招商银行储蓄卡"+GlobalConfig.Account) {
 					log.Println("匹配到账户:" + GlobalConfig.Account)
 					for _, oprator := range GetMatchers() {
 						call := oprator.Match(content)
