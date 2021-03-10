@@ -1,5 +1,7 @@
 .idea/
 .vscode/
+# 自定义配置路径
+.config/
 *.swp
 # Binaries for programs and plugins
 *.exe
